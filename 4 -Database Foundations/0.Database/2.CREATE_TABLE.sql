@@ -1,0 +1,3 @@
+USE admin;
+CRAETE  TABLE  movies(ID INT ,Name VARCHAR(244),Year INT, MDB FLOAT);
+ 

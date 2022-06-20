@@ -1,0 +1,1 @@
+SELECT MAX(id) AS MAX_ID,SUM(id) AS SUM_ID 

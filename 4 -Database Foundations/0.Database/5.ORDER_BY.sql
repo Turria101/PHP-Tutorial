@@ -1,0 +1,4 @@
+USE admin;
+SELECT * FROM ORDER BY Year DESC  /*order by DECENDING */
+SELECT * FROM ORDER BY Year ASC  /*order by AECENDING */
+SELECT * FROM ORDER BY Year ASC ,TITLE DESC  /*order by AECENDING */

@@ -1,0 +1,3 @@
+DROP SCHEMA mov_db;
+DROP SCHEMA IF EXISTS mov_db;
+DROP DATABASE mov_db;

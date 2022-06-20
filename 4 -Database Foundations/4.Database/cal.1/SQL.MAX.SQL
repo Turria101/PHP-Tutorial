@@ -1,0 +1,3 @@
+/*GET MIN*/
+USE app;
+SELECT MIN(*) FROM mirror_1 WHERE ID=1

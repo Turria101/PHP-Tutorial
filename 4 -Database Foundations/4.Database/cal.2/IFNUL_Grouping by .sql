@@ -1,0 +1,8 @@
+SELECT 
+COUNT(mirror_1.Name),
+IFNULL(AVG(POINT).0.9) AS AVG_POINT 
+FROM mirror 
+LEFT OUTER JOIN mirror_1
+ON mirror_1.REL_KEY=mirror.id
+WHERE POINT <1
+GROUP BY id HAVING  AVG_POINT>2

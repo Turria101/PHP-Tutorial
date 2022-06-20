@@ -1,0 +1,138 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 01, 2021 at 04:10 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `app`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mirror`
+--
+
+CREATE TABLE `mirror` (
+  `id` int(11) NOT NULL,
+  `Admin_TRUE` int(11) DEFAULT NULL,
+  `POINT` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mirror`
+--
+
+INSERT INTO `mirror` (`id`, `Admin_TRUE`, `POINT`) VALUES
+(1, 1, NULL),
+(2, 0, NULL),
+(3, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mirror_1`
+--
+
+CREATE TABLE `mirror_1` (
+  `id` int(10) NOT NULL,
+  `Name` varchar(233) DEFAULT NULL,
+  `Admin` varchar(233) DEFAULT NULL,
+  `REL_KEY` int(233) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mirror_1`
+--
+
+INSERT INTO `mirror_1` (`id`, `Name`, `Admin`, `REL_KEY`) VALUES
+(1, 'Mostafa', NULL, 1),
+(2, 'Mego', NULL, 2),
+(3, 'Mohaned', NULL, NULL),
+(4, 'Ahmed Hamdy', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `movie`
+--
+
+CREATE TABLE `movie` (
+  `ID` int(10) NOT NULL,
+  `TITLE` varchar(140) DEFAULT NULL,
+  `MDB` float DEFAULT NULL,
+  `YEARS` year(4) DEFAULT NULL,
+  `RE_ACT` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `mirror`
+--
+ALTER TABLE `mirror`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `adm_one` (`Admin_TRUE`);
+
+--
+-- Indexes for table `mirror_1`
+--
+ALTER TABLE `mirror_1`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `Admin` (`Admin`),
+  ADD KEY `REL_KEY` (`REL_KEY`);
+
+--
+-- Indexes for table `movie`
+--
+ALTER TABLE `movie`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `TITLE` (`TITLE`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `mirror`
+--
+ALTER TABLE `mirror`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `mirror_1`
+--
+ALTER TABLE `mirror_1`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `mirror_1`
+--
+ALTER TABLE `mirror_1`
+  ADD CONSTRAINT `mirror_1_ibfk_1` FOREIGN KEY (`REL_KEY`) REFERENCES `mirror` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
